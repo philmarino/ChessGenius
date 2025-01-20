@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
 namespace ChessGenius1
 {
@@ -20,42 +20,6 @@ namespace ChessGenius1
         {
             //set up the pieces
             LoadPositionFromFen(startFEN);
-            
-            //Square[0] = Piece.Black | Piece.Rook;
-            //Square[1] = Piece.Black | Piece.Knight;
-            //Square[2] = Piece.Black | Piece.Bishop;
-            //Square[3] = Piece.Black | Piece.Queen;
-            //Square[4] = Piece.Black | Piece.King;
-            //Square[5] = Piece.Black | Piece.Bishop;
-            //Square[6] = Piece.Black | Piece.Knight;
-            //Square[7] = Piece.Black | Piece.Rook;
-
-            //Square[8] = Piece.Black | Piece.Pawn;
-            //Square[9] = Piece.Black | Piece.Pawn;
-            //Square[10] = Piece.Black | Piece.Pawn;
-            //Square[11] = Piece.Black | Piece.Pawn;
-            //Square[12] = Piece.Black | Piece.Pawn;
-            //Square[13] = Piece.Black | Piece.Pawn;
-            //Square[14] = Piece.Black | Piece.Pawn;
-            //Square[15] = Piece.Black | Piece.Pawn;
-
-            //Square[48] = Piece.White | Piece.Pawn;
-            //Square[49] = Piece.White | Piece.Pawn;
-            //Square[50] = Piece.White | Piece.Pawn;
-            //Square[51] = Piece.White | Piece.Pawn;
-            //Square[52] = Piece.White | Piece.Pawn;
-            //Square[53] = Piece.White | Piece.Pawn;
-            //Square[54] = Piece.White | Piece.Pawn;
-            //Square[55] = Piece.White | Piece.Pawn;
-
-            //Square[56] = Piece.White | Piece.Rook;
-            //Square[57] = Piece.White | Piece.Knight;
-            //Square[58] = Piece.White | Piece.Bishop;
-            //Square[59] = Piece.White | Piece.Queen;
-            //Square[60] = Piece.White | Piece.King;
-            //Square[61] = Piece.White | Piece.Bishop;
-            //Square[62] = Piece.White | Piece.Knight;
-            //Square[63] = Piece.White | Piece.Rook;
         }
 
         public void LoadPositionFromFen(string fen)
