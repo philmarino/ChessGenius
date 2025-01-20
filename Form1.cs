@@ -21,11 +21,23 @@ namespace ChessGenius1
         const string WhiteQueen = "white-queen.png";
         const string WhiteRook = "white-rook.png";
 
-        public Form1()
+        private Move? move = null;
+        private Board board = new();
+
+        public Form1(Board board)
         {
             InitializeComponent();
+            this.board = board;
+            ColorBackground();
+            Draw();
+            var moves = Brain.LegalMovesFor(board);
+        }
 
-            //color the squares
+        /// <summary>
+        /// Sets the background color to white/black
+        /// </summary>
+        private void ColorBackground()
+        {
             for (int row = 0; row < 8; row++)
             {
                 for (int col = 0; col < 8; col++)
@@ -36,7 +48,7 @@ namespace ChessGenius1
             }
         }
 
-        public void Draw(Board board)
+        public void Draw()
         {
             for (int row = 0; row < 8; row++)
             {
@@ -78,7 +90,31 @@ namespace ChessGenius1
 
         public void Clicked(int square)
         {
-            SetBackColor(square, Color.Red);
+            if (move == null)
+            {
+                SetBackColor(square, Color.Pink); //highlight the 'from' square
+                move = new()
+                {
+                    from = square
+                };
+            } else
+            {
+                //this is the second click - so move the piece
+                move.to = square;
+                board.Square[move.to] = board.Square[move.from];
+                board.Square[move.from] = Piece.None;
+                move = null;
+                board.WhitesTurn = !board.WhitesTurn; //now it is the other player's turn
+
+                //now the brain makes the first legal move it can find
+                var moves = Brain.LegalMovesFor(board);
+                board.Square[moves[0].to] = board.Square[moves[0].from];
+                board.Square[moves[0].from] = Piece.None;
+                board.WhitesTurn = !board.WhitesTurn; //now it is the other player's turn
+
+                ColorBackground(); //reset the highlighted from square - super lazy way to do this
+                Draw();
+            }
         }
 
         private PictureBox Square(int square)

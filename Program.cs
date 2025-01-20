@@ -11,10 +11,10 @@ namespace ChessGenius1
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Form1 form = new();
             Board board = new();
             board.Init();
-            form.Draw(board); //this configures the view from the model
+            Form1 form = new(board);
+            //form.Draw(board); //this configures the view from the model
             Application.Run(form);
         }
     }
